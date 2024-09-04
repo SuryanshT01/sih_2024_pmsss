@@ -48,13 +48,13 @@ const navItems = [
     icon: <HomeOutlined />,
   },
   {
-    text: "CaseFilling",
+    text: "ApplicationForm",
     icon: <InsertDriveFileIcon />,
   },
-  {
-    text: "CaseOverview",
-    icon: <SummarizeIcon />,
-  },
+  // {
+  //   text: "CaseOverview",
+  //   icon: <SummarizeIcon />,
+  // },
   {
     text: "Overview",
     icon: <TrendingUpOutlined />,

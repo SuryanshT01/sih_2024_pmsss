@@ -3,7 +3,7 @@ import Header from "components/Header.jsx";
 import Form1 from "./Form.jsx";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 
-const CaseFilling = () => {
+const ApplicationForm = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
@@ -36,4 +36,4 @@ const CaseFilling = () => {
   );
 };
 
-export default CaseFilling;
+export default ApplicationForm;

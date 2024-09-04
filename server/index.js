@@ -11,10 +11,12 @@ import authRoutes from "./routes/auth.js";
 import caseRoutes from "./routes/case.js";
 import salesRoutes from "./routes/sales.js";
 import nlpRoutes from "./routes/nlp.js";
+import applicationRoutes from "./routes/applications.js"; // New import
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createCase } from "./controllers/case.js";
+import { createApplication } from "./controllers/applications.js"; // New import
 import webPush from "web-push";
 import fs from "fs";
 
@@ -23,6 +25,7 @@ import User from "./models/User.js";
 import Product from "./models/Product.js";
 import ProductStat from "./models/ProductStat.js";
 import OverallStat from "./models/OverallStat.js";
+import Application from "./models/Application.js"; // New import
 import {
   dataUser,
   dataProduct,
@@ -58,8 +61,10 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage });
+
 //Routes with File
 app.post("/casecreate", createCase);
+app.post("/application", upload.single("supportingDocument"), createApplication); // New route
 
 // PUSHER
 
@@ -87,22 +92,7 @@ app.use("/auth", authRoutes);
 app.use("/case", caseRoutes);
 app.use("/sales", salesRoutes);
 app.use("/nlp", nlpRoutes);
-
-//Instantiate wink-nlp.
-
-// new PdfReader().parseFileItems("./data/court.pdf", (err, item) => {
-//   if (err) console.error("error:", err);
-//   else if (!item) console.warn("end of file");
-//   else if (item.text) {
-//
-//   }
-// });
-
-//
-
-// Code for Hello World!
-
-// -> [ [ 'word', 5 ], [ 'punctuation', 2 ], [ 'emoji', 1 ] ]
+app.use("/applications", applicationRoutes); // New route
 
 //Mongoose Setup
 
