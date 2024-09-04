@@ -37,7 +37,7 @@ const Dashboard = () => {
   const chartSetting = {
     xAxis: [
       {
-        label: "Hearings(3.33 Hours)",
+        label: "Time Taken",
       },
     ],
     width: 650,
@@ -49,28 +49,28 @@ const Dashboard = () => {
       paris: 5,
       newYork: 86,
       seoul: 3,
-      month: "GCD",
+      month: "",
     },
     {
       london: 50,
       paris: 9,
       newYork: 78,
       seoul: 5,
-      month: "MAC",
+      month: "Issues",
     },
     {
       london: 47,
       paris: 7,
       newYork: 106,
       seoul: 4.5,
-      month: "EWS",
+      month: "Payment",
     },
     {
-      london: 54,
+      london: 45,
       paris: 10,
       newYork: 92,
       seoul: 7.5,
-      month: "SMSC",
+      month: "Overall",
     },
     // },
     // {
@@ -133,7 +133,7 @@ const Dashboard = () => {
   const chartSetting1 = {
     yAxis: [
       {
-        label: "Pending Cases",
+        label: "",
       },
     ],
     width: 700,
@@ -147,101 +147,101 @@ const Dashboard = () => {
   const dataset1 = [
     {
       london: 55,
-      paris: 42,
+      paris: 120,
       newYork: 280,
       seoul: 21,
-      month: "2010",
+      month: "1st",
     },
     {
-      london: 59,
-      paris: 43,
-      newYork: 270,
+      london: 0,
+      paris: 0,
+      newYork: 0,
       seoul: 28,
-      month: "2011",
+      month: "",
     },
     {
       london: 67,
-      paris: 44,
+      paris: 200,
       newYork: 270,
       seoul: 41,
-      month: "2012",
+      month: "2nd",
     },
     {
-      london: 66,
-      paris: 45,
-      newYork: 270,
+      london: 0,
+      paris: 0,
+      newYork: 0,
       seoul: 73,
-      month: "2013",
+      month: "      ",
     },
     {
       london: 63,
-      paris: 41,
+      paris: 160,
       newYork: 260,
       seoul: 99,
-      month: "2014",
+      month: "3rd",
     },
     {
-      london: 59,
-      paris: 39,
-      newYork: 280,
+      london: 0,
+      paris: 0,
+      newYork: 0,
       seoul: 144,
-      month: "2015",
+      month: " ",
     },
     {
       london: 63,
-      paris: 40,
-      newYork: 280,
+      paris: 120,
+      newYork: 180,
       seoul: 319,
-      month: "2016",
+      month: "4th",
+    },
+    {
+      london: 1,
+      paris: 1,
+      newYork: 1,
+      seoul: 131,
+      month: "     ",
     },
     {
       london: 56,
-      paris: 42,
+      paris: 180,
       newYork: 290,
       seoul: 249,
-      month: "2017",
+      month: "5th",
     },
     {
-      london: 57,
-      paris: 44,
-      newYork: 300,
-      seoul: 131,
-      month: "2018",
-    },
-    {
-      london: 60,
-      paris: 47,
-      newYork: 320,
+      london: 0,
+      paris: 0,
+      newYork: 0,
       seoul: 55,
-      month: "2019",
+      month: "  ",
     },
     {
       london: 65,
-      paris: 56,
+      paris: 170,
       newYork: 370,
       seoul: 48,
-      month: "2020",
+      month: "6th",
     },
     {
-      london: 70,
-      paris: 56,
-      newYork: 400,
+      london: 0,
+      paris: 0,
+      newYork: 0,
       seoul: 25,
-      month: "2021",
+      month: "    ",
     },
     {
       london: 75,
-      paris: 58,
+      paris: 200,
       newYork: 450,
       seoul: 25,
-      month: "2022",
+      month: "7th",
     },
     {
-      london: 80,
-      paris: 60,
-      newYork: 480,
+      london: 0,
+      paris: 0,
+      newYork: 0,
       seoul: 25,
-      month: "2023",
+      month: "   ",
     },
   ];
 
@@ -314,9 +314,9 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <StatBox
-          title="Cases Filled"
-          value="4"
-          increase="+14%"
+          title="Submission Status"
+          value="Pending"
+          increase=""
           description="Since last month"
           icon={
             <BackupTableIcon
@@ -325,10 +325,10 @@ const Dashboard = () => {
           }
         />
         <StatBox
-          title="Pending Cases"
-          value="1"
-          increase="+2%"
-          description="Pending Cases"
+          title="Payment Status"
+          value="Awaiting Approval"
+          increase=""
+          description=""
           icon={
             <PendingActionsIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
@@ -346,18 +346,18 @@ const Dashboard = () => {
             dataset={dataset1}
             xAxis={[{ scaleType: "band", dataKey: "month" }]}
             series={[
-              { dataKey: "london", label: "Supreme", valueFormatter1 },
-              { dataKey: "paris", label: "High", valueFormatter1 },
-              { dataKey: "newYork", label: "Subordinate", valueFormatter1 },
+              { dataKey: "london", label: "Verified", valueFormatter1 },
+              { dataKey: "paris", label: "Initiated", valueFormatter1 },
+              { dataKey: "newYork", label: "Processed", valueFormatter1 },
               // { dataKey: 'seoul', label: 'Seoul', valueFormatter },
             ]}
             {...chartSetting1}
           />
         </Box>
         <StatBox
-          title="Hard Cases"
-          value="4"
-          increase="+5%"
+          title="Document Verification"
+          value="Done"
+          increase=""
           description="Since last month"
           icon={
             <AlignVerticalBottomIcon
@@ -366,10 +366,10 @@ const Dashboard = () => {
           }
         />
         <StatBox
-          title="Intermediate Cases"
-          value="0"
-          increase="+0%"
-          description="Since last month"
+          title="Document Uploaded"
+          value="3"
+          increase=""
+          description="DigiLocker Uploaded"
           icon={
             <AnalyticsIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
@@ -457,7 +457,7 @@ const Dashboard = () => {
           borderRadius="0.55rem"
         >
           <Typography variant="h4" sx={{ color: theme.palette.secondary[100] }}>
-            Cases By Category
+            Document Status
           </Typography>
           {/* <BreakdownChart isDashboard={true} /> */}
           <PieChart
@@ -465,9 +465,9 @@ const Dashboard = () => {
             series={[
               {
                 data: [
-                  { id: 0, value: 10, label: "Criminal" },
-                  { id: 1, value: 15, label: "Civil" },
-                  { id: 2, value: 20, label: "Family" },
+                  { id: 0, value: 10, label: "In Verification" },
+                  { id: 1, value: 15, label: "Approved" },
+                  { id: 2, value: 20, label: "Rejected" },
                 ],
               },
             ]}
@@ -479,8 +479,7 @@ const Dashboard = () => {
             fontSize="0.8rem"
             sx={{ color: theme.palette.secondary[200] }}
           >
-            Breakdown of all Cases and information via category for
-            productivity.
+            Status of all documents and information uploaded by you.
           </Typography>
         </Box>
       </Box>

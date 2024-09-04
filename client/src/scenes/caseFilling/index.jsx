@@ -14,7 +14,7 @@ const CaseFilling = () => {
         p="1rem 6%"
         textAlign="center"
       >
-        <Header title="CASE FILING" subtitle="" />
+        <Header title="APPLICATION FORM" subtitle="" />
         <PendingActionsIcon
           sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
         />
@@ -28,7 +28,7 @@ const CaseFilling = () => {
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Case Filling
+          Application Form
         </Typography>
         <Form1 />
       </Box>
