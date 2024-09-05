@@ -1,8 +1,11 @@
 // routes/applications.js
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const Application = require('../models/Application');
-const upload = require('../middleware/upload'); // You'll need to create this middleware for file uploads
+//const Application = require('../models/Application');
+import Application from "../models/Application.js";
+//const upload = require('../middleware/upload');
+import upload from "../middleware/upload.js";
+ // You'll need to create this middleware for file uploads
 
 router.post('/', upload.single('supportingDocument'), async (req, res) => {
   try {
@@ -20,4 +23,4 @@ router.post('/', upload.single('supportingDocument'), async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

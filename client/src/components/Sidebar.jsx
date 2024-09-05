@@ -63,18 +63,18 @@ const navItems = [
     text: "Calendar",
     icon: <CalendarMonthOutlined />,
   },
-  {
-    text: "Meetings",
-    icon: <VideoChatIcon />,
-  },
+  // {
+  //   text: "Meetings",
+  //   icon: <VideoChatIcon />,
+  // },
   {
     text: "TextEditor",
     icon: <BorderColorIcon />,
   },
-  {
-    text: "NLP",
-    icon: <PsychologyIcon />,
-  },
+  // {
+  //   text: "NLP",
+  //   icon: <PsychologyIcon />,
+  // },
   {
     text: "Assistant",
     icon: <ForumIcon />,

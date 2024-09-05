@@ -86,7 +86,7 @@ const Overview = () => {
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="CASES" subtitle="Keep Track of your Cases" />
+      <Header title="APPLICATION HISTORY" subtitle="Keep Track of your Applications" />
       {data || !isLoading ? (
         <Box
           mt="20px"

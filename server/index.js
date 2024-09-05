@@ -11,12 +11,12 @@ import authRoutes from "./routes/auth.js";
 import caseRoutes from "./routes/case.js";
 import salesRoutes from "./routes/sales.js";
 import nlpRoutes from "./routes/nlp.js";
-import applicationRoutes from "./routes/applications.js"; // New import
+import applicationRoutes from "./routes/application.js"; // New import
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createCase } from "./controllers/case.js";
-import { createApplication } from "./controllers/applications.js"; // New import
+import { createApplication } from "./controllers/application.js"; // New import
 import webPush from "web-push";
 import fs from "fs";
 

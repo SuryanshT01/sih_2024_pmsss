@@ -1,5 +1,5 @@
 // models/Application.js
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const ApplicationSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
@@ -23,4 +23,5 @@ const ApplicationSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('Application', ApplicationSchema);
+const Application = mongoose.model('Application', ApplicationSchema);
+export default Application;
