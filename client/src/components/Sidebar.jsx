@@ -48,13 +48,13 @@ const navItems = [
     icon: <HomeOutlined />,
   },
   {
-    text: "CaseFilling",
+    text: "ApplicationForm",
     icon: <InsertDriveFileIcon />,
   },
-  {
-    text: "CaseOverview",
-    icon: <SummarizeIcon />,
-  },
+  // {
+  //   text: "CaseOverview",
+  //   icon: <SummarizeIcon />,
+  // },
   {
     text: "Overview",
     icon: <TrendingUpOutlined />,
@@ -63,18 +63,18 @@ const navItems = [
     text: "Calendar",
     icon: <CalendarMonthOutlined />,
   },
-  {
-    text: "Meetings",
-    icon: <VideoChatIcon />,
-  },
+  // {
+  //   text: "Meetings",
+  //   icon: <VideoChatIcon />,
+  // },
   {
     text: "TextEditor",
     icon: <BorderColorIcon />,
   },
-  {
-    text: "NLP",
-    icon: <PsychologyIcon />,
-  },
+  // {
+  //   text: "NLP",
+  //   icon: <PsychologyIcon />,
+  // },
   {
     text: "Assistant",
     icon: <ForumIcon />,

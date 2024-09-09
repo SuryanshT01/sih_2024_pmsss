@@ -10,7 +10,7 @@ import Overview from "scenes/overview";
 import Calendar from "scenes/calendar";
 import Login from "scenes/login";
 import Profile from "scenes/profile";
-import CaseFilling from "scenes/caseFilling";
+import ApplicationForm from "scenes/applicationForm";
 import CaseOverview from "scenes/caseOverview";
 import Meeting from "scenes/meetings";
 import TextEditor from "scenes/TextEditor";
@@ -39,7 +39,7 @@ function App() {
               <Route path="/overview" element={<Overview />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/profile" element={<Profile userId={userId} />} />
-              <Route path="/casefilling" element={<CaseFilling />} />
+              <Route path="/applicationForm" element={<ApplicationForm />} />
               <Route path="/caseoverview" element={<CaseOverview />} />
               <Route path="/meetings" element={<Meeting />} />
               <Route path="/texteditor" element={<TextEditor />} />

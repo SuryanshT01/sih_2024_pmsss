@@ -27,6 +27,7 @@ import StatBox from "components/StatBox";
 import { BarChart } from "@mui/x-charts/BarChart";
 import { axisClasses } from "@mui/x-charts";
 import { PieChart } from "@mui/x-charts/PieChart";
+import Footer from "components/Footer";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -483,7 +484,11 @@ const Dashboard = () => {
           </Typography>
         </Box>
       </Box>
+      {/* Footer Component */}
+      <Footer />
+    
     </Box>
+    
   );
 };
 
