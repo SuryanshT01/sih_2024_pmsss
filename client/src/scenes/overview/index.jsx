@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -7,22 +7,26 @@ import {
   Collapse,
   Button,
   Typography,
-  laws,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import Header from "components/Header";
-import { useGetProductsQuery } from "state/api";
-import { useGetAllCasesQuery } from "state/api";
+import { useGetAllApplicationsQuery } from "state/api";
+import { useDispatch, useSelector } from "react-redux";
+import { setApplications } from "state";
 
-const OverviewIndividual = ({
-  caseId,
-  name,
-  location,
-  issues,
-  laws,
-  lawType,
-  courtType,
+const ApplicationCard = ({
+  _id,
+  fullName,
+  email,
+  phoneNumber,
+  dateOfBirth,
+  gender,
+  nationality,
+  educationLevel,
+  institutionName,
+  courseOfStudy,
+  applicationStatus,
 }) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -41,17 +45,15 @@ const OverviewIndividual = ({
           color={theme.palette.secondary[700]}
           gutterBottom
         >
-          {lawType}
+          {applicationStatus}
         </Typography>
         <Typography variant="h5" component="div">
-          {name}
+          {fullName}
         </Typography>
         <Typography sx={{ mb: "1.5rem" }} color={theme.palette.secondary[400]}>
-          Issues Involved: {Number(issues)}
+          Email: {email}
         </Typography>
-        <laws value={laws} readOnly />
-
-        <Typography variant="body2">{location}</Typography>
+        <Typography variant="body2">Education: {educationLevel}</Typography>
       </CardContent>
       <CardActions>
         <Button
@@ -71,8 +73,13 @@ const OverviewIndividual = ({
         }}
       >
         <CardContent>
-          <Typography>id: {caseId}</Typography>
-          <Typography>courtType: {courtType}</Typography>
+          <Typography>Application ID: {_id}</Typography>
+          <Typography>Phone: {phoneNumber}</Typography>
+          <Typography>Date of Birth: {new Date(dateOfBirth).toLocaleDateString()}</Typography>
+          <Typography>Gender: {gender}</Typography>
+          <Typography>Nationality: {nationality}</Typography>
+          <Typography>Institution: {institutionName}</Typography>
+          <Typography>Course of Study: {courseOfStudy}</Typography>
         </CardContent>
       </Collapse>
     </Card>
@@ -80,14 +87,25 @@ const OverviewIndividual = ({
 };
 
 const Overview = () => {
-  const { data, isLoading } = useGetAllCasesQuery();
+  const theme = useTheme();
+  const dispatch = useDispatch();
+  const { data, isLoading, error } = useGetAllApplicationsQuery();
+  const applications = useSelector((state) => state.global.applications);
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  console.log("data1", data);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setApplications({ applications: data }));
+    }
+  }, [data, dispatch]);
+
+  if (isLoading) return <Typography>Loading...</Typography>;
+  if (error) return <Typography color="error">Error: {error.message}</Typography>;
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="APPLICATION HISTORY" subtitle="Keep Track of your Applications" />
-      {data || !isLoading ? (
+      <Header title="APPLICATION HISTORY" subtitle="Overview of Student Applications" />
+      {applications && applications.length > 0 ? (
         <Box
           mt="20px"
           display="grid"
@@ -96,26 +114,18 @@ const Overview = () => {
           rowGap="20px"
           columnGap="1.33%"
           sx={{
-            "& > div": { gridColumn: isNonMobile ? "span 4" : "span 4" },
+            "& > div": { gridColumn: isNonMobile ? "span 1" : "span 4" },
           }}
         >
-          {data.map(
-            ({ caseId, name, location, issues, laws, lawType, courtType }) => (
-              <OverviewIndividual
-                key={caseId}
-                caseId={caseId}
-                name={name}
-                location={location}
-                issues={issues}
-                laws={laws}
-                lawType={lawType}
-                courtType={courtType}
-              />
-            )
-          )}
+          {applications.map((application) => (
+            <ApplicationCard
+              key={application._id}
+              {...application}
+            />
+          ))}
         </Box>
       ) : (
-        <>Loading...</>
+        <Typography color={theme.palette.secondary[400]}>No applications found.</Typography>
       )}
     </Box>
   );
