@@ -27,6 +27,9 @@ export const updateApplication = async (req, res) => {
 
   try {
     const updatedApplication = await Application.findByIdAndUpdate(id, application, { new: true });
+    if (!updatedApplication) {
+      return res.status(404).json({ message: "Application not found" });
+    }
     res.status(200).json(updatedApplication);
   } catch (error) {
     res.status(409).json({ message: error.message });
