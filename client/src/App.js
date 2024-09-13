@@ -11,7 +11,7 @@ import Calendar from "scenes/calendar";
 import Login from "scenes/login";
 import Profile from "scenes/profile";
 import ApplicationForm from "scenes/applicationForm";
-import CaseOverview from "scenes/caseOverview";
+
 import Meeting from "scenes/meetings";
 import TextEditor from "scenes/TextEditor";
 import Notifications from "scenes/notification";
@@ -40,7 +40,7 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/profile" element={<Profile userId={userId} />} />
               <Route path="/applicationForm" element={<ApplicationForm />} />
-              <Route path="/caseoverview" element={<CaseOverview />} />
+              
               <Route path="/meetings" element={<Meeting />} />
               <Route path="/texteditor" element={<TextEditor />} />
               <Route path="/notifications" element={<Notifications />} />

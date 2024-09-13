@@ -51,13 +51,14 @@ const navItems = [
     text: "ApplicationForm",
     icon: <InsertDriveFileIcon />,
   },
-  // {
-  //   text: "CaseOverview",
-  //   icon: <SummarizeIcon />,
-  // },
+  
   {
     text: "Overview",
     icon: <TrendingUpOutlined />,
+  },
+  {
+    text: "Notices",
+    icon: <SummarizeIcon />,
   },
   {
     text: "Calendar",
@@ -71,18 +72,20 @@ const navItems = [
     text: "TextEditor",
     icon: <BorderColorIcon />,
   },
-  // {
-  //   text: "NLP",
-  //   icon: <PsychologyIcon />,
-  // },
+  
   {
     text: "Assistant",
     icon: <ForumIcon />,
   },
   {
+    text: "User Manual",
+    icon: <PsychologyIcon />,
+  },
+  {
     text: "Profile",
     icon: <AccountCircleIcon />,
   },
+  
   {
     text: "SignOut",
     icon: <LogoutIcon />,

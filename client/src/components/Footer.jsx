@@ -8,7 +8,7 @@ const Footer = () => {
     <Box
       sx={{
         mt: "auto",
-        backgroundColor: (theme) => theme.palette.background.paper,
+        backgroundColor: "#191F45",
         p: "1rem",
         textAlign: "center",
         boxShadow: "0px -2px 5px rgba(0,0,0,0.1)",
