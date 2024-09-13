@@ -7,9 +7,8 @@ const Notifications = () => {
     <div>
       <br />
       <Alert severity="info">
-        <AlertTitle>Case Filed</AlertTitle>
-        Your case has been filed, you can now check case overview and
-        categorization — <strong>check it out!</strong>
+        <AlertTitle>Application Filed</AlertTitle>
+        Your Application has been filed, you can now check it's current status in Overview — <strong>check it out!</strong>
       </Alert>
       <br />
       {/* <Alert severity="info">
