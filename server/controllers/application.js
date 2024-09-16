@@ -1,3 +1,4 @@
+// controllers/application.js
 import Application from "../models/Application.js";
 
 export const getApplications = async (req, res) => {
@@ -10,8 +11,16 @@ export const getApplications = async (req, res) => {
 };
 
 export const createApplication = async (req, res) => {
-  const application = req.body;
-  const newApplication = new Application(application);
+  const applicationData = req.body;
+  
+  // Handle file uploads
+  if (req.files) {
+    Object.keys(req.files).forEach(key => {
+      applicationData.documents[key] = req.files[key][0].path;
+    });
+  }
+
+  const newApplication = new Application(applicationData);
 
   try {
     await newApplication.save();
