@@ -4,12 +4,12 @@
   "version": "1.0.0-beta.2",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "format:check": "prettier --check .",
-    "format": "prettier --write ."
+  "dev": "vite",
+  "build": "tsc && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "format:check": "prettier --check .",
+  "format": "prettier --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
