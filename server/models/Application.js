@@ -19,8 +19,13 @@ const ApplicationSchema = new mongoose.Schema({
   extraCurricularActivities: { type: String },
   familyIncome: { type: Number, required: true },
   supportingDocument: { type: String }, // This will store the file path
-  applicationStatus: { type: String, default: 'Pending' },
+  // -------------------- Admin Use Only --------------------
+  courseFees: { type: Number, required: true },
+  approvedScholarshipAmount: { type: Number,default: 0 },
+  applicationStatus: { type: String, enum: ['Pending', 'Viewed', 'Approved', 'Rejected'], default: 'Pending' }, 
+  paymentStatus: { type: String, enum: ['Pending', 'Processed'], default: 'Pending' },
   createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
 });
 
 const Application = mongoose.model('Application', ApplicationSchema);
