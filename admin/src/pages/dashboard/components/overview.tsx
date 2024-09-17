@@ -1,55 +1,55 @@
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 const data = [
   {
-    name: 'Jan',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week1',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Feb',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week2',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Mar',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week3',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Apr',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week4',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'May',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week5',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Jun',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week6',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Jul',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week7',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Aug',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week8',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Sep',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week9',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Oct',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week10',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Nov',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week11',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
   {
-    name: 'Dec',
-    total: Math.floor(Math.random() * 5000) + 1000,
+    name: 'week12',
+    applications: Math.floor(Math.random() * 200) + 50,
   },
-]
+];
 
 export function Overview() {
   return (
@@ -67,15 +67,14 @@ export function Overview() {
           fontSize={12}
           tickLine={false}
           axisLine={false}
-          tickFormatter={(value) => `$${value}`}
         />
         <Bar
-          dataKey='total'
+          dataKey='applications'
           fill='currentColor'
           radius={[4, 4, 0, 0]}
           className='fill-primary'
         />
       </BarChart>
     </ResponsiveContainer>
-  )
+  );
 }

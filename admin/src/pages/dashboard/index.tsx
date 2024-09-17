@@ -44,17 +44,18 @@ export default function Dashboard() {
           <div className='w-full overflow-x-auto pb-2'>
             <TabsList>
               <TabsTrigger value='overview'>Overview</TabsTrigger>
-              <TabsTrigger value='analytics'>Analytics</TabsTrigger>
-              <TabsTrigger value='reports'>Reports</TabsTrigger>
-              <TabsTrigger value='notifications'>Notifications</TabsTrigger>
+              <TabsTrigger value='approvals'>Approvals</TabsTrigger>
+              <TabsTrigger value='approved'>Approved</TabsTrigger>
+              <TabsTrigger value='declined'>Declined</TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value='overview' className='space-y-4'>
             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+              {/* Total Approvals Block */}
               <Card>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Total Revenue
+                    Total Approvals
                   </CardTitle>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -70,16 +71,18 @@ export default function Dashboard() {
                   </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>$45,231.89</div>
+                  <div className='text-2xl font-bold'>3,456</div>
                   <p className='text-xs text-muted-foreground'>
-                    +20.1% from last month
+                    Total approvals processed.
                   </p>
                 </CardContent>
               </Card>
+
+              {/* Approvals Pending Block */}
               <Card>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Subscriptions
+                    Approvals Pending
                   </CardTitle>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -91,46 +94,23 @@ export default function Dashboard() {
                     strokeWidth='2'
                     className='h-4 w-4 text-muted-foreground'
                   >
-                    <path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' />
-                    <circle cx='9' cy='7' r='4' />
-                    <path d='M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' />
+                    <circle cx='12' cy='12' r='10' />
+                    <path d='M12 6v6l4 2' />
                   </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>+2350</div>
+                  <div className='text-2xl font-bold'>234</div>
                   <p className='text-xs text-muted-foreground'>
-                    +180.1% from last month
+                    Pending approvals.
                   </p>
                 </CardContent>
               </Card>
-              <Card>
-                <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-                  <CardTitle className='text-sm font-medium'>Sales</CardTitle>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    className='h-4 w-4 text-muted-foreground'
-                  >
-                    <rect width='20' height='14' x='2' y='5' rx='2' />
-                    <path d='M2 10h20' />
-                  </svg>
-                </CardHeader>
-                <CardContent>
-                  <div className='text-2xl font-bold'>+12,234</div>
-                  <p className='text-xs text-muted-foreground'>
-                    +19% from last month
-                  </p>
-                </CardContent>
-              </Card>
+
+              {/* Approvals Approved Block */}
               <Card>
                 <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
                   <CardTitle className='text-sm font-medium'>
-                    Active Now
+                    Approvals Approved
                   </CardTitle>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -142,17 +122,47 @@ export default function Dashboard() {
                     strokeWidth='2'
                     className='h-4 w-4 text-muted-foreground'
                   >
-                    <path d='M22 12h-4l-3 9L9 3l-3 9H2' />
+                    <polyline points='20 6 9 17 4 12' />
                   </svg>
                 </CardHeader>
                 <CardContent>
-                  <div className='text-2xl font-bold'>+573</div>
+                  <div className='text-2xl font-bold'>2,890</div>
                   <p className='text-xs text-muted-foreground'>
-                    +201 since last hour
+                    Successfully approved.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Approvals Declined Block */}
+              <Card>
+                <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+                  <CardTitle className='text-sm font-medium'>
+                    Approvals Declined
+                  </CardTitle>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    stroke='currentColor'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    className='h-4 w-4 text-muted-foreground'
+                  >
+                    <line x1='18' y1='6' x2='6' y2='18' />
+                    <line x1='6' y1='6' x2='18' y2='18' />
+                  </svg>
+                </CardHeader>
+                <CardContent>
+                  <div className='text-2xl font-bold'>332</div>
+                  <p className='text-xs text-muted-foreground'>
+                    Declined approvals.
                   </p>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Overview and Recent Sales Section */}
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <Card className='col-span-1 lg:col-span-4'>
                 <CardHeader>
@@ -164,9 +174,9 @@ export default function Dashboard() {
               </Card>
               <Card className='col-span-1 lg:col-span-3'>
                 <CardHeader>
-                  <CardTitle>Recent Sales</CardTitle>
+                  <CardTitle>Recent Approvals</CardTitle>
                   <CardDescription>
-                    You made 265 sales this month.
+                    Approval statistics from this month.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -188,18 +198,18 @@ const topNav = [
     isActive: true,
   },
   {
-    title: 'Customers',
-    href: 'dashboard/customers',
+    title: 'Approvals',
+    href: 'dashboard/approvals',
     isActive: false,
   },
   {
-    title: 'Products',
-    href: 'dashboard/products',
+    title: 'Approved',
+    href: 'dashboard/approved',
     isActive: false,
   },
   {
-    title: 'Settings',
-    href: 'dashboard/settings',
+    title: 'Declined',
+    href: 'dashboard/declined',
     isActive: false,
   },
 ]
