@@ -18,6 +18,7 @@ import { fileURLToPath } from "url";
 import { createCase } from "./controllers/case.js";
 import { createApplication } from "./controllers/application.js"; // New import
 import webPush from "web-push";
+import Razorpay from "razorpay";
 import fs from "fs";
 
 //data imports
@@ -46,9 +47,38 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+
+
+//Mongoose Setup
+
+const PORT = process.env.PORT || 3000;
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB connection successful!");
+    app.listen(PORT, () => console.log(`Server Started on port: ${PORT}`));
+    //User.insertMany(dataUser)
+    //Product.insertMany(dataProduct);
+    //ProductStat.insertMany(dataProductStat);
+    //OverallStat.insertMany(dataOverallStat);
+  })
+  .catch((err) => {
+    console.error(`MongoDB connection error: ${err.message}`);
+    process.exit(1);
+  });
+
+
+// Razorpay payment integration
+export const instance = new Razorpay({
+  key_id: process.env.RAZORPAY_API_KEY,
+  key_secret: process.env.RAZORPAY_APT_SECRET,
+});
 
 //File Storage
 
@@ -94,19 +124,3 @@ app.use("/sales", salesRoutes);
 app.use("/nlp", nlpRoutes);
 app.use("/applications", applicationRoutes); // New route
 
-//Mongoose Setup
-
-const PORT = process.env.PORT || 3000;
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server Started on port:${PORT}`));
-    //User.insertMany(dataUser)
-    //Product.insertMany(dataProduct);
-    //ProductStat.insertMany(dataProductStat);
-    //OverallStat.insertMany(dataOverallStat);
-  })
-  .catch((err) => console.log(`Server Error: ${err}`));
