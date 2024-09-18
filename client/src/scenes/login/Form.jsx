@@ -202,6 +202,19 @@ const Form = () => {
                 ? "Don't have an account? Sign Up here."
                 : "Already have an account? Login here."}
             </Typography>
+            <Button
+              fullWidth
+              onClick={() => navigate("/admin-login")}
+              sx={{
+                mt: "1rem",
+                p: "0.5rem",
+                backgroundColor: palette.secondary.main,
+                color: palette.background.alt,
+                "&:hover": { backgroundColor: palette.secondary.light },
+              }}
+            >
+              ADMIN LOGIN
+            </Button>
           </Box>
         </form>
       )}

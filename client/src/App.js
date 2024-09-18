@@ -9,6 +9,7 @@ import Layout from "scenes/layout";
 import Overview from "scenes/overview";
 import Calendar from "scenes/calendar";
 import Login from "scenes/login";
+import AdminLogin from "scenes/login/AdminLogin";
 import Profile from "scenes/profile";
 import ApplicationForm from "scenes/applicationForm";
 
@@ -35,6 +36,7 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/login" replace />} />
+              
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/overview" element={<Overview />} />
               <Route path="/calendar" element={<Calendar />} />
@@ -51,6 +53,7 @@ function App() {
               />
             </Route>
             <Route path="/login" element={<Login />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

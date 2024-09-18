@@ -11,6 +11,7 @@ export const api = createApi({
     "Cases",
     "AllCases",
     "Nlp",
+    "Applications", // Add this new tag
   ],
   endpoints: (build) => ({
     getUser: build.query({
@@ -41,6 +42,10 @@ export const api = createApi({
       query: () => "nlp/nlp",
       providesTags: ["Nlp"],
     }),
+    getAllApplications: build.query({
+      query: () => "applications/data",
+      providesTags: ["Applications"],
+    }),
   }),
 });
 
@@ -52,4 +57,5 @@ export const {
   useGetCasesQuery,
   useGetAllCasesQuery,
   useGetNlpQuery,
+  useGetAllApplicationsQuery, // Export the new query hook
 } = api;

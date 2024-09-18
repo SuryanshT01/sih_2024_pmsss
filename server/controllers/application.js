@@ -1,3 +1,4 @@
+// controllers/application.js
 import Application from "../models/Application.js";
 
 export const getApplications = async (req, res) => {
@@ -10,8 +11,16 @@ export const getApplications = async (req, res) => {
 };
 
 export const createApplication = async (req, res) => {
-  const application = req.body;
-  const newApplication = new Application(application);
+  const applicationData = req.body;
+  
+  // Handle file uploads
+  if (req.files) {
+    Object.keys(req.files).forEach(key => {
+      applicationData.documents[key] = req.files[key][0].path;
+    });
+  }
+
+  const newApplication = new Application(applicationData);
 
   try {
     await newApplication.save();
@@ -27,6 +36,9 @@ export const updateApplication = async (req, res) => {
 
   try {
     const updatedApplication = await Application.findByIdAndUpdate(id, application, { new: true });
+    if (!updatedApplication) {
+      return res.status(404).json({ message: "Application not found" });
+    }
     res.status(200).json(updatedApplication);
   } catch (error) {
     res.status(409).json({ message: error.message });
