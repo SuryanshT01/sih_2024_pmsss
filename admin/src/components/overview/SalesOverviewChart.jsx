@@ -10,18 +10,11 @@ import {
 import { motion } from "framer-motion";
 
 const salesData = [
-	{ name: "Jan", sales: 200 },
-  { name: "Jul", sales: 350 },
-  { name: "Aug", sales: 380 },
-  { name: "Sep", sales: 500 },
-  { name: "Oct", sales: 400 },
-  { name: "Nov", sales: 490 },
-  { name: "Dec", sales: 720 },
-  { name: "Feb", sales: 590 },
-  { name: "Mar", sales: 680 },
-  { name: "Apr", sales: 630 },
-  { name: "May", sales: 710 },
-  { name: "Jun", sales: 750 },
+	{ name: "Week-1", applications: 100 },
+  { name: "Week-2", applications: 300 },
+  { name: "Week-3", applications: 680 },
+  { name: "Week-4", applications: 800 },
+  { name: "Week-5", applications: 1200 },
 ];
 
 const SalesOverviewChart = () => {
@@ -51,7 +44,7 @@ const SalesOverviewChart = () => {
             />
             <Line
               type="monotone"
-              dataKey="sales"
+              dataKey="applications"
               stroke="#6366F1"
               strokeWidth={3}
               dot={{ fill: "#6366F1", strokeWidth: 2, r: 6 }}

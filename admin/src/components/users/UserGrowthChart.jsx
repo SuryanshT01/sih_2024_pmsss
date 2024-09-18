@@ -2,12 +2,11 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { motion } from "framer-motion";
 
 const userGrowthData = [
-	{ month: "Jan", users: 1000 },
-	{ month: "Feb", users: 1500 },
-	{ month: "Mar", users: 2000 },
-	{ month: "Apr", users: 3000 },
-	{ month: "May", users: 4000 },
-	{ month: "Jun", users: 5000 },
+  { weeks: "week-1", users: 100 },
+  { weeks: "week-2", users: 200 },
+  { weeks: "week-3", users: 600 },
+  { weeks: "week-4", users: 800 },
+  { weeks: "week-5", users: 2000 }, 
 ];
 
 const UserGrowthChart = () => {
@@ -18,12 +17,12 @@ const UserGrowthChart = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.3 }}
 		>
-			<h2 className='text-xl font-semibold text-gray-100 mb-4'>User Growth</h2>
+			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Payment Processing Rate</h2>
 			<div className='h-[320px]'>
 				<ResponsiveContainer width='100%' height='100%'>
 					<LineChart data={userGrowthData}>
 						<CartesianGrid strokeDasharray='3 3' stroke='#374151' />
-						<XAxis dataKey='month' stroke='#9CA3AF' />
+						<XAxis dataKey='weeks' stroke='#9CA3AF' />
 						<YAxis stroke='#9CA3AF' />
 						<Tooltip
 							contentStyle={{

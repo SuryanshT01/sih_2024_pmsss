@@ -4,9 +4,9 @@ import Header from "../components/common/Header";
 import StatCard from "../components/common/StatCard";
 
 import { AlertTriangle, Package, TrendingDown, CheckCircle } from "lucide-react"; // Using AlertTriangle
-import CategoryDistributionChart from "../components/overview/CategoryDistributionChart";
-import SalesTrendChart from "../components/products/SalesTrendChart";
-import ProductsTable from "../components/products/ProductsTable";
+import CategoryDistributionChart2 from "../components/overview/CategoryDistributionChart2";
+import SalesTrendChart2 from "../components/products/SalesTrendChart2";
+import ProductsTable2 from "../components/products/ProductsTable2";
 
 const DeclinedPage = () => {
 	return (
@@ -27,12 +27,12 @@ const DeclinedPage = () => {
 					<StatCard name='Applications Declined (Till Date)' icon={AlertTriangle} value={"450"} color='#EF4444' /> {/* Changed icon to AlertTriangle */}
 				</motion.div>
 
-				<ProductsTable />
+				<ProductsTable2 />
 
 				{/* CHARTS */}
 				<div className='grid grid-col-1 lg:grid-cols-2 gap-8'>
-					<SalesTrendChart />
-					<CategoryDistributionChart />
+					<SalesTrendChart2 />
+					<CategoryDistributionChart2 />
 				</div>
 			</main>
 		</div>
