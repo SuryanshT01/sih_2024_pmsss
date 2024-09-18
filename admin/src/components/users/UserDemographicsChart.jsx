@@ -4,11 +4,11 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recha
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#0088FE"];
 
 const userDemographicsData = [
-	{ name: "18-24", value: 20 },
-	{ name: "25-34", value: 30 },
-	{ name: "35-44", value: 25 },
-	{ name: "45-54", value: 15 },
-	{ name: "55+", value: 10 },
+	{ name: "0-50K", value: 20 },
+	{ name: "50K-1L", value: 30 },
+	{ name: "1L-1.5L", value: 20 },
+	{ name: "1.5L-2L", value: 45 },
+	{ name: "2L-3L", value: 5 },
 ];
 
 const UserDemographicsChart = () => {
@@ -19,7 +19,7 @@ const UserDemographicsChart = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.5 }}
 		>
-			<h2 className='text-xl font-semibold text-gray-100 mb-4'>User Demographics</h2>
+			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Scholarship Distribution Category Wise</h2>
 			<div style={{ width: "100%", height: 300 }}>
 				<ResponsiveContainer>
 					<PieChart>
