@@ -32,7 +32,7 @@ const SIDEBAR_ITEMS = [
     color: "#EC4899",
     href: "/declined",
   },
-  { name: "Tracker", icon: DollarSign, color: "#8B5CF6", href: "/sales" },
+  { name: "Finances", icon: DollarSign, color: "#8B5CF6", href: "/sales" },
   { name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
   { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];
