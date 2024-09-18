@@ -311,7 +311,7 @@
               }}
             >
               <DownloadOutlined sx={{ mr: "10px" }} />
-              Download Reports
+              Download Applications
             </Button>
           </Box>
         </FlexBetween>
