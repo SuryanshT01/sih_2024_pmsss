@@ -12,9 +12,12 @@ import BackupTableIcon from "@mui/icons-material/BackupTable";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
 import AlignVerticalBottomIcon from "@mui/icons-material/AlignVerticalBottom";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
+import ArticleIcon from '@mui/icons-material/Article';
+import { Stepper, Step, StepLabel } from "@mui/material";
 import {
   Box,
   Button,
+  Divider,
   Typography,
   useTheme,
   useMediaQuery,
@@ -34,6 +37,15 @@ const Dashboard = () => {
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   //const { data, isLoading } = useGetDashboardQuery();
   const { data } = useGetAllCasesQuery();
+
+  const stages = [
+    "Application Submitted",
+    "Application Received",
+    "Application Processed",
+    "Application Sent to Finance Bureau",
+    "Application Approved",
+    "Payment Processed",
+  ];
 
   const chartSetting = {
     xAxis: [
@@ -299,7 +311,7 @@ const Dashboard = () => {
             }}
           >
             <DownloadOutlined sx={{ mr: "10px" }} />
-            Download Reports
+            Download Applications
           </Button>
         </Box>
       </FlexBetween>
@@ -336,25 +348,78 @@ const Dashboard = () => {
             />
           }
         />
+        
         <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor={theme.palette.background.alt}
-          p="1.5rem"
-          borderRadius="0.55rem"
+  gridColumn="span 8"
+  gridRow="span 2"
+  backgroundColor={theme.palette.background.alt}
+  p="1.5rem"
+  borderRadius="0.55rem"
+>
+  <StatBox
+    title="Notices"
+    value={
+      <Box display="flex" flexDirection="column" gap="0.5rem">
+        {/* Static heading */}
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: "bold",
+            marginBottom: "1rem",
+            color: theme.palette.secondary[300],
+          }}
         >
-          <BarChart
-            dataset={dataset1}
-            xAxis={[{ scaleType: "band", dataKey: "month" }]}
-            series={[
-              { dataKey: "london", label: "Verified", valueFormatter1 },
-              { dataKey: "paris", label: "Initiated", valueFormatter1 },
-              { dataKey: "newYork", label: "Processed", valueFormatter1 },
-              // { dataKey: 'seoul', label: 'Seoul', valueFormatter },
-            ]}
-            {...chartSetting1}
-          />
+
+        </Typography>
+
+        {/* Scrollable content */}
+        <Box
+          gap="4.0rem"
+          sx={{
+            maxHeight: '200px',  // Set max height for scrollable area
+            overflowY: 'auto',    // Enable vertical scrolling
+          }}
+        >
+          {[
+            "Reservation policy of the UTs of J&K",
+            "List of Document Verification Center of LADAKH Division",
+            "List of Document Verification Center of KASHMIR Division",
+            "List of Document Verification Center of JAMMU Division",
+            "Frequently Asked Questions (FAQs) for Aspirants 2024-25",
+            "Format of Institute Bank Mandate Form 2024-25",
+            "Format of Pre-receipt of Academic Fee for 2024-25",
+          ].map((notice, index) => (
+            <Box
+              key={index}
+              sx={{
+                fontsize: "0.8rem",
+                marginBottom: "1.5rem",
+                // gap: "1.5rem",
+                cursor: "pointer",
+                textDecoration: "none",
+                color: theme.palette.secondary[300],
+                '&:hover': {
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              {notice}
+            </Box>
+          ))}
         </Box>
+      </Box>
+    }
+    increase=""
+    description=""
+    icon={
+      <ArticleIcon
+        sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+      />
+    }
+  />
+</Box>
+
+
         <StatBox
           title="Document Verification"
           value="Done"
@@ -389,7 +454,38 @@ const Dashboard = () => {
             />
           }
         /> */}
-        <Box
+
+        {/* Progress Tracker */}
+      <Box
+        gridColumn="span 12"
+        gridRow="span 1"
+        backgroundColor={theme.palette.background.alt}
+        p="1.5rem"
+        borderRadius="0.55rem"
+        mt="20px"
+      >
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: "bold",
+            color: theme.palette.secondary[300],
+            mb: "1rem",
+          }}
+        >
+          Application Progress
+        </Typography>
+
+        {/* Stepper Component */}
+        <Stepper activeStep={1} alternativeLabel>
+          {stages.map((label, index) => (
+            <Step key={index}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Box>
+
+        {/* <Box
           gridColumn="span 8"
           gridRow="span 3"
           sx={{
@@ -418,12 +514,12 @@ const Dashboard = () => {
             },
           }}
         >
-          {/* <DataGrid
+          <DataGrid
             loading={!data}
             getRowId={(row) => row._id}
             rows={(data && data.transactions) || []}
             columns={columns}
-          /> */}
+          />
           <Box
             mt="1px"
             display="grid"
@@ -447,42 +543,9 @@ const Dashboard = () => {
               {...chartSetting}
             />
           </Box>
-        </Box>
+        </Box> */}
 
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          mt="20px"
-          backgroundColor={theme.palette.background.alt}
-          p="0rem"
-          borderRadius="0.55rem"
-        >
-          <Typography variant="h4" sx={{ color: theme.palette.secondary[100] }}>
-            Document Status
-          </Typography>
-          {/* <BreakdownChart isDashboard={true} /> */}
-          <PieChart
-            colors={["cyan", `#008080`, `#DDFF94`]}
-            series={[
-              {
-                data: [
-                  { id: 0, value: 10, label: "In Verification" },
-                  { id: 1, value: 15, label: "Approved" },
-                  { id: 2, value: 20, label: "Rejected" },
-                ],
-              },
-            ]}
-            width={400}
-            height={200}
-          />
-          <Typography
-            p="0 0.6rem"
-            fontSize="0.8rem"
-            sx={{ color: theme.palette.secondary[200] }}
-          >
-            Status of all documents and information uploaded by you.
-          </Typography>
-        </Box>
+        
       </Box>
       {/* Footer Component */}
       <Footer />
