@@ -33,7 +33,7 @@ const OverviewPage = () => {
             color="#8B5CF6"
           />
           <StatCard
-            name="Approvals Approved"
+            name="Applications Approved"
             icon={BarChart2}
             value="2,890"
             color="#10B981"
@@ -52,7 +52,7 @@ const OverviewPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <SalesOverviewChart />
           <CategoryDistributionChart />
-          <SalesChannelChart />
+          {/* <SalesChannelChart /> */}
         </div>
       </main>
     </div>
