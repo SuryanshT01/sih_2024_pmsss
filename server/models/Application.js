@@ -1,4 +1,3 @@
-// models/Application.js
 import mongoose from "mongoose";
 
 const ApplicationSchema = new mongoose.Schema({
@@ -18,9 +17,16 @@ const ApplicationSchema = new mongoose.Schema({
   academicAchievements: { type: String },
   extraCurricularActivities: { type: String },
   familyIncome: { type: Number, required: true },
-  supportingDocument: { type: String }, // This will store the file path
-  applicationStatus: { type: String, default: 'Pending' },
-  createdAt: { type: Date, default: Date.now },
+  supportingDocument: { type: String }, // File path for supporting document
+  signature: { type: String, required: true }, // File path for signature
+  photo: { type: String, required: true }, // File path for photo
+  aadharCard: { type: String, required: true }, // File path for Aadhar card
+  tenthMarksheet: { type: String, required: true }, // File path for 10th marksheet
+  twelfthMarksheet: { type: String, required: true }, // File path for 12th marksheet
+  domicileCertificate: { type: String, required: true }, // File path for domicile certificate
+  casteCertificate: { type: String, required: true }, // File path for caste certificate
+  applicationStatus: { type: String, default: 'Pending' }, // Default application status
+  createdAt: { type: Date, default: Date.now }, // Automatically set creation date
 });
 
 const Application = mongoose.model('Application', ApplicationSchema);
