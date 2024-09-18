@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
-const dailySalesData = [
-	{ name: "Mon", sales: 1000 },
-	{ name: "Tue", sales: 1200 },
-	{ name: "Wed", sales: 900 },
-	{ name: "Thu", sales: 1100 },
-	{ name: "Fri", sales: 1300 },
-	{ name: "Sat", sales: 1600 },
-	{ name: "Sun", sales: 1400 },
+// Weekly sales data for up to 5 weeks
+const weeklySalesData = [
+	{ week: "Week 1", sales: 5000 },
+	{ week: "Week 2", sales: 4500 },
+	{ week: "Week 3", sales: 6000 },
+	{ week: "Week 4", sales: 5500 },
+	{ week: "Week 5", sales: 7000 },
 ];
 
 const DailySalesTrend = () => {
@@ -19,13 +18,13 @@ const DailySalesTrend = () => {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.4 }}
 		>
-			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Daily Sales Trend</h2>
+			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Weekly Trend</h2>
 
 			<div style={{ width: "100%", height: 300 }}>
 				<ResponsiveContainer>
-					<BarChart data={dailySalesData}>
+					<BarChart data={weeklySalesData}>
 						<CartesianGrid strokeDasharray='3 3' stroke='#374151' />
-						<XAxis dataKey='name' stroke='#9CA3AF' />
+						<XAxis dataKey='week' stroke='#9CA3AF' />
 						<YAxis stroke='#9CA3AF' />
 						<Tooltip
 							contentStyle={{
