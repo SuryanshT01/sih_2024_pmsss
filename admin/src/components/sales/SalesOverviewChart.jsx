@@ -2,18 +2,17 @@ import { motion } from "framer-motion";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { useState } from "react";
 
-const monthlySalesData = [
-	{ month: "Jan", sales: 4000 },
-	{ month: "Feb", sales: 3000 },
-	{ month: "Mar", sales: 5000 },
-	{ month: "Apr", sales: 4500 },
-	{ month: "May", sales: 6000 },
-	{ month: "Jun", sales: 5500 },
-	{ month: "Jul", sales: 7000 },
+// Example weekly sales data for 5 weeks
+const weeklySalesData = [
+	{ week: "Week 1", sales: 1000 },
+	{ week: "Week 2", sales: 1500 },
+	{ week: "Week 3", sales: 1200 },
+	{ week: "Week 4", sales: 1800 },
+	{ week: "Week 5", sales: 1600 },
 ];
 
 const SalesOverviewChart = () => {
-	const [selectedTimeRange, setSelectedTimeRange] = useState("This Month");
+	const [selectedTimeRange, setSelectedTimeRange] = useState("This Week");
 
 	return (
 		<motion.div
@@ -23,12 +22,11 @@ const SalesOverviewChart = () => {
 			transition={{ delay: 0.2 }}
 		>
 			<div className='flex items-center justify-between mb-6'>
-				<h2 className='text-xl font-semibold text-gray-100'>Sales Overview</h2>
+				<h2 className='text-xl font-semibold text-gray-100'>Scholarship Overview</h2>
 
 				<select
 					className='bg-gray-700 text-white rounded-md px-3 py-1 focus:outline-none focus:ring-2 
-          focus:ring-blue-500
-          '
+          focus:ring-blue-500'
 					value={selectedTimeRange}
 					onChange={(e) => setSelectedTimeRange(e.target.value)}
 				>
@@ -41,9 +39,9 @@ const SalesOverviewChart = () => {
 
 			<div className='w-full h-80'>
 				<ResponsiveContainer>
-					<AreaChart data={monthlySalesData}>
+					<AreaChart data={weeklySalesData}>
 						<CartesianGrid strokeDasharray='3 3' stroke='#374151' />
-						<XAxis dataKey='month' stroke='#9CA3AF' />
+						<XAxis dataKey='week' stroke='#9CA3AF' />
 						<YAxis stroke='#9CA3AF' />
 						<Tooltip
 							contentStyle={{ backgroundColor: "rgba(31, 41, 55, 0.8)", borderColor: "#4B5563" }}

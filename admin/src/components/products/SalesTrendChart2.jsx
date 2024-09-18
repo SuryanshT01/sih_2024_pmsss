@@ -1,28 +1,26 @@
 import { motion } from "framer-motion";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
-// Weekly sales data for up to 5 weeks
-const weeklySalesData = [
-	{ week: "Week 1", sales: 5000 },
-	{ week: "Week 2", sales: 4500 },
-	{ week: "Week 3", sales: 6000 },
-	{ week: "Week 4", sales: 5500 },
-	{ week: "Week 5", sales: 7000 },
+const weeklyData = [
+	{ week: "Week 1", declined: 200 },
+	{ week: "Week 2", declined: 180 },
+	{ week: "Week 3", declined: 220 },
+	{ week: "Week 4", declined: 240 },
+	{ week: "Week 5", declined: 150 },
 ];
 
-const DailySalesTrend = () => {
+const SalesTrendChart2 = () => {
 	return (
 		<motion.div
 			className='bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl p-6 border border-gray-700'
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
-			transition={{ delay: 0.4 }}
+			transition={{ delay: 0.3 }}
 		>
-			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Weekly Trend</h2>
-
+			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Declined Chart</h2>
 			<div style={{ width: "100%", height: 300 }}>
 				<ResponsiveContainer>
-					<BarChart data={weeklySalesData}>
+					<LineChart data={weeklyData}>
 						<CartesianGrid strokeDasharray='3 3' stroke='#374151' />
 						<XAxis dataKey='week' stroke='#9CA3AF' />
 						<YAxis stroke='#9CA3AF' />
@@ -33,11 +31,13 @@ const DailySalesTrend = () => {
 							}}
 							itemStyle={{ color: "#E5E7EB" }}
 						/>
-						<Bar dataKey='sales' fill='#10B981' />
-					</BarChart>
+						<Legend />
+						<Line type='monotone' dataKey='declined' stroke='#EF4444' strokeWidth={2} />
+					</LineChart>
 				</ResponsiveContainer>
 			</div>
 		</motion.div>
 	);
 };
-export default DailySalesTrend;
+
+export default SalesTrendChart2;

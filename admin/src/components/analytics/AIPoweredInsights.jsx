@@ -1,26 +1,27 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Users, ShoppingBag, DollarSign } from "lucide-react";
+import { TrendingUp, Users, ClipboardList, DollarSign } from "lucide-react";
 
+// Updated insights for the scholarship dashboard
 const INSIGHTS = [
 	{
 		icon: TrendingUp,
 		color: "text-green-500",
-		insight: "Revenue is up 15% compared to last month, driven primarily by a successful email campaign.",
+		insight: "Scholarship approvals have increased by 12% this month due to streamlined verification processes.",
 	},
 	{
 		icon: Users,
 		color: "text-blue-500",
-		insight: "Customer retention has improved by 8% following the launch of the new loyalty program.",
+		insight: "Student engagement has improved by 10% after the launch of real-time application tracking.",
 	},
 	{
-		icon: ShoppingBag,
+		icon: ClipboardList,
 		color: "text-purple-500",
-		insight: 'Product category "Electronics" shows the highest growth potential based on recent market trends.',
+		insight: "Document accuracy has improved across all streams, reducing rejections by 8%.",
 	},
 	{
 		icon: DollarSign,
 		color: "text-yellow-500",
-		insight: "Optimizing pricing strategy could potentially increase overall profit margins by 5-7%.",
+		insight: "Budget optimization strategies indicate a potential 5% increase in scholarships approved without exceeding the allocated fund.",
 	},
 ];
 
@@ -41,9 +42,10 @@ const AIPoweredInsights = () => {
 						</div>
 						<p className='text-gray-300'>{item.insight}</p>
 					</div>
-				))}
+				))} 
 			</div>
 		</motion.div>
 	);
 };
+
 export default AIPoweredInsights;

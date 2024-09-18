@@ -55,4 +55,5 @@ const SalesTrendChart = () => {
     </motion.div>
   );
 };
+
 export default SalesTrendChart;

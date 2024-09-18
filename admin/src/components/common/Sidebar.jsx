@@ -30,10 +30,9 @@ const SIDEBAR_ITEMS = [
     name: "Declined",
     icon: ShoppingBag,
     color: "#EC4899",
-    href: "/applications",
+    href: "/declined",
   },
-  { name: "Sales", icon: DollarSign, color: "#8B5CF6", href: "/sales" },
-  { name: "Orders", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
+  { name: "Finances", icon: DollarSign, color: "#8B5CF6", href: "/sales" },
   { name: "Analytics", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
   { name: "Settings", icon: Settings, color: "#6EE7B7", href: "/settings" },
 ];

@@ -14,7 +14,7 @@ const categoryData = [
   { name: "Medical", value: 900 },
 ];
 
-const COLORS = ["#6366F1", "#8B5CF6", "#EC4899", "#10B981", "#F59E0B"];
+const COLORS = ["#6366F1", "#8B5CF6", "#EC4899", "#10B981", "#F59E0B", "#F97316"];
 
 const CategoryDistributionChart = () => {
   return (
@@ -63,4 +63,5 @@ const CategoryDistributionChart = () => {
     </motion.div>
   );
 };
+
 export default CategoryDistributionChart;

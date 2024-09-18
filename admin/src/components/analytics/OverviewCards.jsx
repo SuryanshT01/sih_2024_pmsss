@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { DollarSign, Users, ShoppingBag, Eye, ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 const overviewData = [
-	{ name: "Revenue", value: "$1,234,567", change: 12.5, icon: DollarSign },
-	{ name: "Users", value: "45,678", change: 8.3, icon: Users },
-	{ name: "Orders", value: "9,876", change: -3.2, icon: ShoppingBag },
-	{ name: "Page Views", value: "1,234,567", change: 15.7, icon: Eye },
+	{ name: "Scholarship", value: "₹1.23 Crores", change: 12.5, icon: DollarSign },
+	{ name: "Users", value: "56,789", change: 8.3, icon: Users },  // Increased users
+	{ name: "Appliactions", value: "9,876", change: -3.2, icon: ShoppingBag },
+	{ name: "User Interaction", value: "12,34,567", change: 15.7, icon: Eye },
 ];
 
 const OverviewCards = () => {
@@ -28,18 +28,12 @@ const OverviewCards = () => {
 						</div>
 
 						<div
-							className={`
-              p-3 rounded-full bg-opacity-20 ${item.change >= 0 ? "bg-green-500" : "bg-red-500"}
-              `}
+							className={`p-3 rounded-full bg-opacity-20 ${item.change >= 0 ? "bg-green-500" : "bg-red-500"}`}
 						>
-							<item.icon className={`size-6  ${item.change >= 0 ? "text-green-500" : "text-red-500"}`} />
+							<item.icon className={`size-6 ${item.change >= 0 ? "text-green-500" : "text-red-500"}`} />
 						</div>
 					</div>
-					<div
-						className={`
-              mt-4 flex items-center ${item.change >= 0 ? "text-green-500" : "text-red-500"}
-            `}
-					>
+					<div className={`mt-4 flex items-center ${item.change >= 0 ? "text-green-500" : "text-red-500"}`}>
 						{item.change >= 0 ? <ArrowUpRight size='20' /> : <ArrowDownRight size='20' />}
 						<span className='ml-1 text-sm font-medium'>{Math.abs(item.change)}%</span>
 						<span className='ml-2 text-sm text-gray-400'>vs last period</span>
